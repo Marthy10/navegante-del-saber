@@ -258,5 +258,12 @@
     <h2>🧠 Recursos TIC </h2>
     <p>Explora videos, imágenes interactivas, mapas históricos y enlaces a fuentes confiables que te ayudarán a resolver tus misiones y comprender los procesos históricos.</p>
   </section>
+<script>
+  function mostrarSeccion(id) {
+    const secciones = document.querySelectorAll("section");
+    secciones.forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+  }
+</script>
 </body>
 </html>
