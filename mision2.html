@@ -8,14 +8,19 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('fondo_mision2.jpg'); /* Reemplaza con tu imagen */
+      background-color: #000;
+      color: white;
+    }
+
+    section {
+      background-image: url('fondo_mision2.jpg'); /* Cambia por el nombre de tu imagen */
       background-size: cover;
       background-position: center;
-      color: white;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 40px;
     }
 
     .contenido {
@@ -24,12 +29,11 @@
       border-radius: 15px;
       max-width: 900px;
       text-align: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
       color: #f1c40f;
     }
 
@@ -38,61 +42,48 @@
       line-height: 1.6;
     }
 
-    a.button {
-      margin-top: 2rem;
+    iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+
+    .button {
       display: inline-block;
-      background-color: #e67e22;
+      margin-top: 30px;
       padding: 12px 25px;
-      border-radius: 10px;
-      text-decoration: none;
+      background-color: #e67e22;
       color: white;
+      text-decoration: none;
+      border-radius: 10px;
       font-weight: bold;
-      font-size: 1rem;
       transition: background 0.3s ease;
     }
 
-    a.button:hover {
+    .button:hover {
       background-color: #d35400;
-    }
-
-    iframe {
-      margin-top: 20px;
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
-      border: none;
-      border-radius: 10px;
     }
   </style>
 </head>
 <body>
 
+<section>
   <div class="contenido">
-    <h1>🧭 Misión 2: Explorando las Culturas Precolombinas</h1>
+    <h1>🧭 Misión 2: Las Culturas Precolombinas</h1>
+    <p>¡Excelente trabajo en la Misión 1! Ahora es momento de explorar las culturas originarias que habitaban América antes de la llegada de los conquistadores. Observa con atención el video y completa el desafío interactivo.</p>
 
-    <p>
-      ¡Felicidades, Guardián! Has llegado a la segunda etapa. Es hora de conocer a profundidad las <strong>culturas indígenas</strong> que habitaron América antes de la llegada de los conquistadores.
-    </p>
+    <!-- Inserta aquí tu video de YouTube o Genially -->
+    <iframe src="https://www.youtube.com/watch?v=Ex0UGzMz-oM" allowfullscreen></iframe>
 
-    <p>
-      Observa con atención el siguiente video y responde el formulario que encontrarás más abajo. ¡Tu misión es identificar sus principales características, ubicación y aportes culturales!
-    </p>
+    <!-- O puedes insertar un Genially -->
+    <!-- <iframe src="https://view.genially.com/68843dfc8b0e669bb52dbc7a/interactive-content-quiz-bomba" allowfullscreen></iframe> -->
 
-    <!-- Video de YouTube -->
-    <iframe src="https://https://www.youtube.com/watch?v=Ex0UGzMz-oM" allowfullscreen></iframe>
-
-    <!-- Enlace al formulario de Google -->
-    <p style="margin-top: 2rem;">
-      👉 <a href="https://view.genially.com/68843dfc8b0e669bb52dbc7a/interactive-content-quiz-bomba" target="_blank" class="button">Ir al Cuestionario</a>
-    </p>
-
-    <!-- Botón de avanzar (lo puedes ocultar o dejar visible después del formulario) -->
-    <p>
-      ✅ ¿Completaste el formulario? Continúa tu misión:
-      <br>
-      <a href="mision3.html" class="button">Ir a Misión 3</a>
-    </p>
+    <!-- Botón para regresar al menú de misiones -->
+    <a href="index.html#misiones" class="button">⬅️ Volver a las Misiones</a>
   </div>
+</section>
 
 </body>
 </html>
