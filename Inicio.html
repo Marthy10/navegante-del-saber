@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú Gamificado - Guardianes del Saber</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      background-color: #1e2a38;
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #f1c40f;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 18px;
+      background: linear-gradient(145deg, #2f3640, #3b3b98);
+      border-radius: 12px;
+      transition: all 0.3s ease-in-out;
+      font-size: 1rem;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: linear-gradient(145deg, #f39c12, #f1c40f);
+      color: #2c3e50;
+      transform: scale(1.1);
+    }
+
+    section {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #ecf0f1;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    /* Estilos específicos para la sección de Inicio */
+    #inicio {
+      background-image: url('mi_fondo_inicio.jpg'); /* Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      min-height: 100vh;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #inicio.active {
+      display: flex;
+    }
+
+    #inicio .contenido {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    .button {
+      margin-top: 2rem;
+      background-color: #e67e22;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #d35400;
+    }
+
+     #objetivo {
+      background-image: url('imagen_objetivo.jpg'); /* Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      min-height: 100vh;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #objetivo.active {
+      display: flex;
+    }
+
+    #objetivo .contenido {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 15px;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+     #narrativa {
+      background-image: url('imagen_narrativa.jpg'); /* Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      min-height: 100vh;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #narrativa.active {
+      display: flex;
+    }
+
+    #narrativa .contenido {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 15px;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+   .boton-completar {
+  display: inline-block;
+  background-color: #00a86b;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+.boton-completar:hover {
+  background-color: #007f55;
+}
+#misiones {
+      background-image: url('fondo_misiones.jpg'); /* Reemplaza con tu imagen */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      min-height: 100vh;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #misiones.active {
+      display: flex;
+    }
+
+    #misiones .contenido {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 15px;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
+    <a href="#" onclick="mostrarSeccion('objetivo')">🎯 Objetivo</a>
+    <a href="#" onclick="mostrarSeccion('narrativa')">📖 Narrativa</a>
+    <a href="#" onclick="mostrarSeccion('misiones')">🧩 Misiones</a>
+    <a href="#" onclick="mostrarSeccion('recursos')">🧠 Recursos</a>
+  </nav>
+
+  <section id="inicio" class="active">
+    <div class="contenido">
+      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🏰 ¡Bienvenido, Guardián del Saber!</h2>
+      <p style="font-size: 1.2rem; line-height: 1.6;">
+        Has sido seleccionado como parte de una élite de estudiantes valientes que asumirán una misión histórica sin precedentes.
+        La humanidad necesita tu ingenio, tu curiosidad y tu compromiso para reconstruir la historia desde una mirada crítica,
+        activa y transformadora.
+      </p>
+      <p style="font-size: 1.2rem; line-height: 1.6;">
+        En esta aventura educativa recorrerás los hechos más relevantes de la <strong>Conquista de América</strong>, 
+        desentrañando verdades ocultas, rescatando voces silenciadas y comprendiendo los impactos que este proceso dejó 
+        en nuestras culturas ancestrales.
+      </p>
+      <p style="font-size: 1.2rem; line-height: 1.6;">
+        Como <strong>Guardián del Saber</strong>, te enfrentarás a desafíos en forma de <em>misiones</em>, resolverás enigmas, 
+        analizarás recursos multimedia y demostrarás tus habilidades para construir conocimiento. No estás solo: tus decisiones, 
+        tu criterio y tu trabajo en equipo serán clave para avanzar y desbloquear nuevos niveles.
+      </p>
+      <p style="font-size: 1.2rem; line-height: 1.6;">
+        Esta es tu Aula. Esta es tu Misión. ¡Haz historia con nosotros!
+      </p>
+      <a href="index.html" class="button" onclick="mostrarSeccion('inicio')">Volver a la portada</a>
+    </div>
+  </section>
+
+  <section id="objetivo">
+    <div class="contenido">
+  <h2>🎯 Objetivo</h2>
+  <p>
+    El objetivo principal de esta experiencia educativa gamificada es que los estudiantes comprendan y analicen de manera crítica el proceso de la Conquista de América, reconociendo sus causas, su desarrollo y las múltiples consecuencias que tuvo para los pueblos originarios y las sociedades actuales.
+  </p>
+  <p>
+    A través de una narrativa inmersiva y actividades tipo misión, se busca fomentar la curiosidad, el pensamiento crítico y la reflexión histórica, permitiendo a los estudiantes asumir un rol activo como protagonistas de su aprendizaje.
+  </p>
+  <p>
+    Además, se pretende fortalecer habilidades como el trabajo colaborativo, la investigación, la interpretación de fuentes históricas y el uso de herramientas TIC, promoviendo una educación significativa, ética y transformadora.
+  </p>
+  <p>
+    Este enfoque busca formar ciudadanos más conscientes, empáticos y capaces de cuestionar las versiones tradicionales de la historia para construir nuevas perspectivas desde el respeto a la diversidad cultural.
+  </p>
+  </div>
+</section>
+
+ <section id="narrativa">
+  <div class = "contenido"
+  <h2>📖 Narrativa: Guardianes del Saber</h2>
+  <p>
+    En un rincón oculto del universo del conocimiento, existe una orden secreta conocida como <strong>Los Guardianes del Saber</strong>.
+    Durante siglos, esta orden ha protegido las verdades más valiosas de la historia humana. Pero ahora, una amenaza oscura ha surgido…
+  </p>
+  <p>
+    Una organización misteriosa llamada <strong>La Sombra del Olvido</strong> ha comenzado a alterar los registros históricos. 
+    Su objetivo es claro: borrar los hechos verdaderos sobre la <strong>Conquista de América</strong> para controlar el pasado… y así manipular el futuro.
+  </p>
+  <p>
+    El tiempo comienza a fragmentarse. Imágenes confusas, relatos distorsionados y voces silenciadas claman por justicia desde lo más profundo de la historia.
+    Si nadie actúa, el legado de pueblos enteros será borrado para siempre.
+  </p>
+  <p><strong>📜 Aquí es donde entras tú.</strong><br>
+    Como miembro de la generación Aula 7, has sido elegido por la Orden de los Guardianes. 
+    Tu mente, tu corazón y tu capacidad de cuestionar te convierten en una pieza clave en esta misión histórica.
+  </p>
+  <ul style="text-align: left; max-width: 700px; margin: 20px auto;">
+    <li>🕰️ Viaja virtualmente a épocas pasadas,</li>
+    <li>🔍 Descubre los verdaderos rostros de los conquistadores y los pueblos indígenas,</li>
+    <li>🕵️ Desenmascara las versiones manipuladas por <em>La Sombra del Olvido</em>,</li>
+    <li>📦 Construye una cápsula del tiempo que preserve la verdad.</li>
+  </ul>
+  <p style="font-size: 1.2rem;"><strong>¿Aceptarás el desafío?</strong></p>
+  <a href="#misiones" class="button" onclick="mostrarSeccion('misiones')">SI</a>
+  <a href="index.html" class="button" onclick="mostrarSeccion('inicio')">NO</a>
+</div>
+</section>
+   <section id="misiones" style="padding: 60px 20px; background-color: #ecf0f1;">
+  <h2 style="text-align:center;">🧩 Misiones</h2>
+  <div id="contenedorMisiones" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+    <!-- Misión 1 -->
+    <div class="mision" data-id="1" style="background-color: #2c3e50; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+      <h3 style="color: #f1c40f;">📜 Misión 1: Línea del Tiempo</h3>
+      <p>Crea una línea del tiempo de los eventos clave de la Conquista.</p>
+      <a href="mision1.html" class="boton-completar">🚀 Completar Misión 1</a>
+    </div>
+
+    <!-- Misión 2 -->
+    <div class="mision bloqueada" data-id="2" style="background-color: #7f8c8d; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); opacity: 0.6;">
+      <h3 style="color: #ecf0f1;">🗺️ Misión 2: Mapa Interactivo</h3>
+      <p>Ubica rutas de conquista en un mapa interactivo.</p>
+      <button disabled style="background-color: #bdc3c7; color: #2c3e50; padding: 8px 12px; border: none; border-radius: 6px;">Bloqueada</button>
+    </div>
+
+    <!-- Misión 3 -->
+    <div class="mision bloqueada" data-id="3" style="background-color: #7f8c8d; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); opacity: 0.6;">
+      <h3 style="color: #ecf0f1;">⚔️ Misión 3: Debatiendo Visiones</h3>
+      <p>Realiza un debate entre dos visiones: indígena y europea.</p>
+      <button disabled style="background-color: #bdc3c7; color: #2c3e50; padding: 8px 12px; border: none; border-radius: 6px;">Bloqueada</button>
+    </div>
+
+    <!-- Misión 4 -->
+    <div class="mision bloqueada" data-id="4" style="background-color: #7f8c8d; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); opacity: 0.6;">
+      <h3 style="color: #ecf0f1;">🖼️ Misión 4: Imagen vs Realidad</h3>
+      <p>Compara ilustraciones con fuentes escritas.</p>
+      <button disabled style="background-color: #bdc3c7; color: #2c3e50; padding: 8px 12px; border: none; border-radius: 6px;">Bloqueada</button>
+    </div>
+
+    <!-- Misión 5 -->
+    <div class="mision bloqueada" data-id="5" style="background-color: #7f8c8d; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); opacity: 0.6;">
+      <h3 style="color: #ecf0f1;">🎤 Misión 5: Testimonio en primera persona</h3>
+      <p>Graba un video desde la voz de un indígena o conquistador.</p>
+      <button disabled style="background-color: #bdc3c7; color: #2c3e50; padding: 8px 12px; border: none; border-radius: 6px;">Bloqueada</button>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="recursos">
+    <h2>🧠 Recursos TIC </h2>
+    <p>Explora videos, imágenes interactivas, mapas históricos y enlaces a fuentes confiables que te ayudarán a resolver tus misiones y comprender los procesos históricos.</p>
+  </section>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll("section");
+      secciones.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+<script>
+  let misionActual = 1;
+
+  function completarMision(id) {
+    const tarjeta = document.querySelector(`.mision[data-id='${id}']`);
+    tarjeta.style.backgroundColor = "#27ae60";
+    tarjeta.querySelector("button").innerText = "Completada";
+    tarjeta.querySelector("button").disabled = true;
+
+    // Desbloquear la siguiente misión
+   const siguiente = document.querySelector(`.mision[data-id='${id + 1}']`);
+    if (siguiente) {
+      siguiente.classList.remove("bloqueada");
+      siguiente.style.backgroundColor = "#2c3e50";
+      siguiente.style.opacity = "1";
+      const boton = siguiente.querySelector("button");
+      boton.disabled = false;
+      boton.innerText = "Completar";
+      boton.style.backgroundColor = "#e67e22";
+      boton.style.color = "white";
+    }
+  }//
+</script>
+</body>
+</html>
