@@ -277,39 +277,33 @@
     </p>
   </div>
 </section>
-
-  <section id="recompensas" style="padding: 40px; background-color: #111; color: white;">
+  
+ <section id="recompensas" style="padding: 40px; background-color: #111; color: white;">
   <div style="max-width: 900px; margin: auto;">
     <h2 style="color: #f1c40f; text-align: center;">🏅 Recompensas del Juego</h2>
-    
-    <h3>🎖️ 1. Insignias Digitales</h3>
-    <ul>
-      <li>📖 <strong>Aprendiz del Saber:</strong> Representado por un libro abierto con luz dorada.</li>
-      <li>🧭 <strong>Explorador del Conocimiento:</strong> Un mapa antiguo con brújula.</li>
-      <li>🛡️ <strong>Guardián Supremo:</strong> Escudo con símbolos históricos (sol y mar).</li>
-    </ul>
 
-    <h3>💰 2. Puntos y Medallas</h3>
-    <ul>
-      <li>💰 <strong>Monedas doradas:</strong> Con íconos históricos como carabelas, plumas y astrolabios.</li>
-      <li>🥉🥈🥇 <strong>Medallas:</strong> De bronce, plata y oro con el logo de Guardianes del Saber.</li>
-    </ul>
+    <div id="contenedorRecompensas">
+      <!-- Recompensas bloqueadas se ocultan con JS -->
+      <div class="recompensa" data-mision="1">
+        <h3>📖 Insignia: Aprendiz del Saber</h3>
+        <p>Un libro abierto con luz dorada.</p>
+      </div>
 
-    <h3>🏆 3. Trofeos Especiales</h3>
-    <ul>
-      <li>🏆 <strong>Trofeo del Guardián Supremo:</strong> Copa con figuras de dos mundos entrelazados.</li>
-      <li>📦 <strong>Cofre del Conocimiento:</strong> Cofre antiguo con libros y pergaminos iluminados.</li>
-    </ul>
+      <div class="recompensa" data-mision="2">
+        <h3>🥇 Medallas y Monedas</h3>
+        <p>Medallas de bronce, plata y oro, junto a monedas históricas.</p>
+      </div>
 
-    <h3>📜 4. Recompensas Simbólicas</h3>
-    <ul>
-      <li>📜 <strong>Diploma Digital:</strong> “Guardián del Saber” al completar todas las misiones.</li>
-      <li>🗺️ <strong>Mapa desbloqueado:</strong> Se revelan partes del mapa a medida que avanzas en el juego.</li>
-    </ul>
+      <div class="recompensa" data-mision="3">
+        <h3>🏆 Trofeo del Guardián Supremo</h3>
+        <p>Una copa con figuras de dos mundos entrelazados.</p>
+      </div>
 
-    <p style="margin-top: 30px; text-align: center;">
-      Cada logro es una muestra de tu esfuerzo, ¡colecciónalos todos y conviértete en un verdadero Guardián del Saber!
-    </p>
+      <div class="recompensa" data-mision="5">
+        <h3>📜 Diploma y 🗺️ Mapa final</h3>
+        <p>Certificado digital y acceso al mapa completo del saber.</p>
+      </div>
+    </div>
   </div>
 </section>
 <script>
@@ -318,6 +312,36 @@
     secciones.forEach(sec => sec.classList.remove("active"));
     document.getElementById(id).classList.add("active");
   }
+</script>
+  <script>
+  function mostrarSeccion(id) {
+    const secciones = document.querySelectorAll("section");
+    secciones.forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+
+    // Mostrar recompensas desbloqueadas si estamos en la sección
+    if (id === 'recompensas') mostrarRecompensas();
+  }
+
+  function mostrarRecompensas() {
+    const completadas = parseInt(localStorage.getItem('misionesCompletadas')) || 0;
+    const recompensas = document.querySelectorAll(".recompensa");
+    recompensas.forEach(div => {
+      const misionNecesaria = parseInt(div.dataset.mision);
+      if (completadas >= misionNecesaria) {
+        div.style.display = "block";
+      } else {
+        div.style.display = "none";
+      }
+    });
+  }
+
+  // Mostrar recompensas al cargar la página si ya está desbloqueado
+  window.addEventListener("load", () => {
+    if (document.getElementById("recompensas").classList.contains("active")) {
+      mostrarRecompensas();
+    }
+  });
 </script>
 </body>
 </html>
