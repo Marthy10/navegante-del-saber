@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Misiones - Guardianes del Saber</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      background-image: url('fondo_misiones.jpg'); /* Asegúrate de tener esta imagen en la misma carpeta */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 1px 1px 5px black;
+    }
+
+    nav {
+      background-color: #1e2a38;
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #f1c40f;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 18px;
+      background: linear-gradient(145deg, #2f3640, #3b3b98);
+      border-radius: 12px;
+      transition: all 0.3s ease-in-out;
+      font-size: 1rem;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: linear-gradient(145deg, #f39c12, #f1c40f);
+      color: #2c3e50;
+      transform: scale(1.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #f1c40f;
+      margin-top: 30px;
+    }
+
+    .boton-completar {
+      display: inline-block;
+      background-color: #00a86b;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      margin-top: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    .boton-completar:hover {
+      background-color: #007f55;
+    }
+
+    .mision {
+      background-color: #2c3e50;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      margin: 10px;
+    }
+
+    .bloqueada {
+      background-color: #7f8c8d !important;
+      opacity: 0.6;
+    }
+
+    .mision h3 {
+      color: #f1c40f;
+    }
+
+    #contenedorMisiones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">🏠 Volver al Menú Principal</a>
+  </nav>
+
+  <h2>🧩 Misiones</h2>
+
+  <div id="contenedorMisiones">
+    <!-- Misión 1 -->
+    <div class="mision" data-id="1">
+      <h3>📜 Misión 1: Línea del Tiempo</h3>
+      <p>Crea una línea del tiempo de los eventos clave de la Conquista.</p>
+      <a href="mision1.html" class="boton-completar">🚀 Completar Misión 1</a>
+    </div>
+
+    <!-- Misión 2 -->
+    <div class="mision bloqueada" data-id="2">
+      <h3>🗺️ Misión 2: Mapa Interactivo</h3>
+      <p>Ubica rutas de conquista en un mapa interactivo.</p>
+      <button disabled>🔒 Bloqueada</button>
+    </div>
+
+    <!-- Misión 3 -->
+    <div class="mision bloqueada" data-id="3">
+      <h3>⚔️ Misión 3: Debatiendo Visiones</h3>
+      <p>Realiza un debate entre dos visiones: indígena y europea.</p>
+      <button disabled>🔒 Bloqueada</button>
+    </div>
+  </div>
+
+  <script>
+    // Ejemplo de desbloqueo automático con localStorage
+    window.addEventListener('load', () => {
+      const completadas = localStorage.getItem('misionesCompletadas');
+      const idDesbloquear = completadas ? parseInt(completadas) + 1 : 2;
+
+      const siguiente = document.querySelector(`.mision[data-id='${idDesbloquear}']`);
+      if (siguiente) {
+        siguiente.classList.remove("bloqueada");
+        siguiente.querySelector("button").disabled = false;
+        siguiente.querySelector("button").innerText = "🚀 Completar Misión " + idDesbloquear;
+        siguiente.querySelector("button").onclick = () => {
+          window.location.href = `mision${idDesbloquear}.html`;
+        };
+      }
+    });
+  </script>
+
+</body>
+</html>
