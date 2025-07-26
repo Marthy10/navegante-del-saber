@@ -74,6 +74,7 @@
       width: 250px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
       margin: 10px;
+      text-align: center;
     }
 
     .bloqueada {
@@ -83,6 +84,7 @@
 
     .mision h3 {
       color: #f1c40f;
+      margin-bottom: 10px;
     }
 
     #contenedorMisiones {
@@ -140,7 +142,6 @@
   </div>
 
   <script>
-    // Ejemplo de desbloqueo automático con localStorage
     window.addEventListener('load', () => {
       const completadas = localStorage.getItem('misionesCompletadas');
       const idDesbloquear = completadas ? parseInt(completadas) + 1 : 2;
@@ -151,7 +152,7 @@
         const boton = siguiente.querySelector("button");
         if (boton) {
           boton.disabled = false;
-          boton.innerText = "🚀 Completar Misión " + idDesbloquear;
+          boton.innerText = `🚀 Completar Misión ${idDesbloquear}`;
           boton.onclick = () => {
             window.location.href = `mision${idDesbloquear}.html`;
           };
@@ -162,3 +163,4 @@
 
 </body>
 </html>
+
