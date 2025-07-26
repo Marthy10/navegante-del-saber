@@ -134,31 +134,48 @@
   <!-- Misión 5 -->
   <div class="mision bloqueada" data-id="5">
     <h3>🎤 Misión 5: ¿Era justa la sociedad colonial?</h3>
-    <p>Observa la infografia y contesta preguntas.</p>
+    <p>Observa la infografía y contesta preguntas.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
   </div>
 </div>
 
-  <script>
-    // Sistema de desbloqueo con localStorage
-    window.addEventListener('load', () => {
-      const completadas = localStorage.getItem('misionesCompletadas');
-      const idDesbloquear = completadas ? parseInt(completadas) + 1 : 2;
+<!-- ✅ SCRIPT CORRECTO -->
+<script>
+  window.addEventListener('load', () => {
+    const completadas = parseInt(localStorage.getItem('misionesCompletadas')) || 0;
+    const totalMisiones = 5;
 
-      const siguiente = document.querySelector(`.mision[data-id='${idDesbloquear}']`);
-      if (siguiente) {
-        siguiente.classList.remove("bloqueada");
-        const boton = siguiente.querySelector("button");
-        if (boton) {
-          boton.disabled = false;
-          boton.innerText = "🚀 Completar Misión " + idDesbloquear;
-          boton.onclick = () => {
-            window.location.href = `mision${idDesbloquear}.html`;
-          };
+    for (let i = 1; i <= completadas; i++) {
+      const mision = document.querySelector(`.mision[data-id='${i}']`);
+      if (mision) {
+        mision.classList.remove("bloqueada");
+        const enlace = mision.querySelector("a.boton-completar");
+        if (enlace) {
+          enlace.innerText = "✅ Misión " + i + " Completada";
+          enlace.href = `mision${i}.html`;
+          enlace.style.pointerEvents = "auto";
+          enlace.style.opacity = "1";
+          enlace.removeAttribute("disabled");
         }
       }
-    });
-  </script>
+    }
+
+    if (completadas < totalMisiones) {
+      const siguiente = document.querySelector(`.mision[data-id='${completadas + 1}']`);
+      if (siguiente) {
+        siguiente.classList.remove("bloqueada");
+        const enlace = siguiente.querySelector("a.boton-completar");
+        if (enlace) {
+          enlace.innerText = "🚀 Completar Misión " + (completadas + 1);
+          enlace.href = `mision${completadas + 1}.html`;
+          enlace.style.pointerEvents = "auto";
+          enlace.style.opacity = "1";
+          enlace.removeAttribute("disabled");
+        }
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
