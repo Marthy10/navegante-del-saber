@@ -2,83 +2,72 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>¡Felicitaciones, Guardián!</title>
+  <title>🎓 Felicitaciones - Guardianes del Saber</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url('fondo_felicitaciones.jpg');
-      background-size: cover;
-      background-position: center;
+      background-color: #000;
       color: white;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .contenedor {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 800px;
+      padding: 60px 20px;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: #f1c40f;
     }
 
     p {
-      font-size: 1.3rem;
-      margin-top: 20px;
+      font-size: 1.4rem;
+      margin: 20px 0;
     }
 
-    .boton {
-      margin-top: 30px;
-      padding: 15px 30px;
+    .button {
       background-color: #00a86b;
       color: white;
+      padding: 15px 30px;
       border: none;
       border-radius: 10px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: bold;
+      margin: 15px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: 0.3s ease;
+      text-decoration: none;
     }
 
-    .boton:hover {
+    .button:hover {
       background-color: #007f55;
     }
 
-    img {
+    #diploma {
       margin-top: 30px;
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
   </style>
 </head>
 <body>
-  <div class="contenedor">
-    <h1>🎉 ¡Felicitaciones, Guardián del Saber!</h1>
-    <p>Has completado todas las misiones con valentía, conocimiento y perseverancia.</p>
-    <p>Como reconocimiento, aquí tienes tu diploma de Guardián del Saber.</p>
 
-    <!-- Imagen del diploma (puedes reemplazarla por una imagen propia) -->
-    <img src="diploma_guardian.jpg" alt="Diploma de Guardián del Saber"/>
+  <h1>🎉 ¡Felicidades, Guardián del Saber!</h1>
+  <p>Has completado todas las misiones y defendido la verdad histórica. Tu valentía y conocimiento te han convertido en un verdadero Guardián del Saber. 🛡️📜</p>
 
-    <button class="boton" onclick="reiniciarJuego()">🔄 Reiniciar Juego</button>
-  </div>
+  <!-- Imagen del diploma -->
+  <img id="diploma" src="diploma_guardian.png" alt="Diploma Guardian del Saber">
+
+  <!-- Botón para descargar el diploma -->
+  <a href="diploma_guardian.png" download="Diploma_Guardian_del_Saber.png" class="button">📥 Descargar Diploma</a>
+
+  <!-- Botón para reiniciar el juego -->
+  <button class="button" onclick="reiniciarJuego()">🔄 Reiniciar Juego</button>
 
   <script>
     function reiniciarJuego() {
       localStorage.removeItem('misionesCompletadas');
+      alert("El juego se ha reiniciado. Puedes comenzar nuevamente desde la Misión 1.");
       window.location.href = "misiones.html";
     }
   </script>
