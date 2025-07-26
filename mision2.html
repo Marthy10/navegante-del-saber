@@ -13,7 +13,7 @@
     }
 
     section {
-      background-image: url('fondo_mision2.jpg'); /* Cambia por el nombre de tu imagen */
+      background-image: url('fondo_mision2.jpg'); /* Cambia por tu imagen */
       background-size: cover;
       background-position: center;
       min-height: 100vh;
@@ -42,35 +42,17 @@
       line-height: 1.6;
     }
 
-    .enlace-video {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 30px;
-      background-color: #f39c12;
-      color: #2c3e50;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-
-    .enlace-video:hover {
-      background-color: #e67e22;
-      color: white;
-    }
-
     iframe {
       width: 100%;
       height: 480px;
       border: none;
-      margin-top: 30px;
+      margin-top: 20px;
       border-radius: 12px;
     }
 
     .button {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 20px;
       padding: 12px 25px;
       background-color: #e67e22;
       color: white;
@@ -82,6 +64,14 @@
 
     .button:hover {
       background-color: #d35400;
+    }
+
+    .finalizar {
+      background-color: #27ae60;
+    }
+
+    .finalizar:hover {
+      background-color: #1e8449;
     }
 
     nav {
@@ -126,20 +116,29 @@
 <section>
   <div class="contenido">
     <h1>🧭 Misión 2: Las Culturas Precolombinas</h1>
-    <p>¡Excelente trabajo en la Misión 1! Ahora es momento de explorar las culturas originarias que habitaban América antes de la llegada de los conquistadores.</p>
+    <p>¡Excelente trabajo en la Misión 1! Ahora es momento de explorar las culturas originarias que habitaban América antes de la llegada de los conquistadores. Haz clic en el enlace y observa con atención el video. Luego completa la actividad interactiva Genially.</p>
 
-    <p><strong>🎥 Mira primero este video en YouTube:</strong></p>
-    <a href="https://www.youtube.com/watch?v=Ex0UGzMz-oM" target="_blank" class="enlace-video">📺 VER VIDEO EN YOUTUBE</a>
-
-    <p style="margin-top: 25px;">🧠 Luego, completa este desafío interactivo:</p>
+    <!-- Enlace atractivo al video -->
+    <p><a href="https://www.youtube.com/watch?v=Ex0UGzMz-oM" target="_blank" class="button">🎥 Ver video en YouTube</a></p>
 
     <!-- Genially embebido -->
     <iframe src="https://view.genially.com/68843dfc8b0e669bb52dbc7a/interactive-content-quiz-bomba" allowfullscreen></iframe> 
 
-    <!-- Botón para regresar al menú de misiones -->
-    <a href="misiones.html" class="button">⬅️ Volver al Menú de Misiones</a>
+    <!-- Botón para marcar misión como completada -->
+    <button class="button finalizar" onclick="completarMision2()">✅ Misión Finalizada</button>
+
+    <!-- Botón para volver al menú de misiones -->
+    <a href="misiones.html" class="button">⬅️ Volver a las Misiones</a>
   </div>
 </section>
+
+<script>
+  function completarMision2() {
+    localStorage.setItem('misionesCompletadas', '2');
+    alert('¡Has completado la Misión 2! Misión 3 ahora está desbloqueada.');
+    window.location.href = 'misiones.html';
+  }
+</script>
 
 </body>
 </html>
