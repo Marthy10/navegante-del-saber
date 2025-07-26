@@ -139,6 +139,13 @@
     window.location.href = 'misiones.html';
   }
 </script>
-
+<script>
+  function marcarMisionCompletada(numero) {
+    const actual = parseInt(localStorage.getItem('misionesCompletadas')) || 0;
+    if (numero > actual) {
+      localStorage.setItem('misionesCompletadas', numero);
+    }
+  }
+</script>
 </body>
 </html>
