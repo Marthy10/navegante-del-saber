@@ -9,7 +9,7 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f4f4;
-      background-image: url('fondo_misiones.jpg'); /* Asegúrate de tener esta imagen en la misma carpeta */
+      background-image: url('fondo_misiones.jpg');
       background-size: cover;
       background-position: center;
       color: white;
@@ -100,7 +100,7 @@
     <a href="index.html">🏠 Volver al Menú Principal</a>
   </nav>
 
-  <h2> Misiones</h2>
+  <h2>🧩 Misiones</h2>
 
   <div id="contenedorMisiones">
     <!-- Misión 1 -->
@@ -123,20 +123,18 @@
       <p>Realiza un debate entre dos visiones: indígena y europea.</p>
       <button disabled>🔒 Bloqueada</button>
     </div>
-  </div>
 
-      <!-- Misión 4 -->
+    <!-- Misión 4 -->
     <div class="mision bloqueada" data-id="4">
-      <h3>⚔️ Misión 4: Debatiendo Visiones</h3>
-      <p>Realiza un debate entre dos visiones: indígena y europea.</p>
+      <h3>🖼️ Misión 4: Imagen vs Realidad</h3>
+      <p>Compara ilustraciones con fuentes escritas.</p>
       <button disabled>🔒 Bloqueada</button>
     </div>
-  </div>
 
-      <!-- Misión 3 -->
+    <!-- Misión 5 -->
     <div class="mision bloqueada" data-id="5">
-      <h3>⚔️ Misión 5: Debatiendo Visiones</h3>
-      <p>Realiza un debate entre dos visiones: indígena y europea.</p>
+      <h3>🎤 Misión 5: Testimonio en Primera Persona</h3>
+      <p>Graba un video desde la voz de un indígena o conquistador.</p>
       <button disabled>🔒 Bloqueada</button>
     </div>
   </div>
@@ -150,11 +148,14 @@
       const siguiente = document.querySelector(`.mision[data-id='${idDesbloquear}']`);
       if (siguiente) {
         siguiente.classList.remove("bloqueada");
-        siguiente.querySelector("button").disabled = false;
-        siguiente.querySelector("button").innerText = "🚀 Completar Misión " + idDesbloquear;
-        siguiente.querySelector("button").onclick = () => {
-          window.location.href = `mision${idDesbloquear}.html`;
-        };
+        const boton = siguiente.querySelector("button");
+        if (boton) {
+          boton.disabled = false;
+          boton.innerText = "🚀 Completar Misión " + idDesbloquear;
+          boton.onclick = () => {
+            window.location.href = `mision${idDesbloquear}.html`;
+          };
+        }
       }
     });
   </script>
