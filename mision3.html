@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Misión 3 - Guardianes del Saber</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    nav {
+      background-color: #1e2a38;
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #f1c40f;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 18px;
+      background: linear-gradient(145deg, #2f3640, #3b3b98);
+      border-radius: 12px;
+      transition: all 0.3s ease-in-out;
+      font-size: 1rem;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: linear-gradient(145deg, #f39c12, #f1c40f);
+      color: #2c3e50;
+      transform: scale(1.1);
+    }
+
+    section {
+      background-image: url('fondo_mision3.jpg'); /* Asegúrate de tener esta imagen en tu carpeta */
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .contenido {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #f1c40f;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .button, .boton-completar {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #e67e22;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .button:hover, .boton-completar:hover {
+      background-color: #d35400;
+    }
+
+    .enlace {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      display: block;
+      color: #1abc9c;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="inicio.html">🏠 Inicio</a>
+  </nav>
+
+  <section>
+    <div class="contenido">
+      <h1>⚔️ Misión 3: Viajes de Colón y Descubrimiento</h1>
+      <p>En esta misión aprenderás sobre los viajes de Cristóbal Colón y los eventos que desencadenaron el encuentro entre dos mundos.</p>
+
+      <a class="enlace" href="https://youtu.be/FdizSgFEuR8?si=vafd1ahnkFLNcKMj" target="_blank">▶️ Mira este video en YouTube antes de continuar</a>
+
+      <p>Luego de ver el video, reflexiona sobre las consecuencias del descubrimiento de América y prepárate para resolver el desafío final.</p>
+
+      <!-- Botón para marcar la misión como completada -->
+      <button class="boton-completar" onclick="completarMision(3)">✅ Misión completada</button>
+
+      <!-- Botón para volver al menú -->
+      <a href="misiones.html" class="button">⬅️ Volver a las Misiones</a>
+    </div>
+  </section>
+
+  <script>
+    function completarMision(id) {
+      localStorage.setItem('misionesCompletadas', id);
+      alert("¡Misión completada! Ahora puedes acceder a la siguiente.");
+      window.location.href = "misiones.html";
+    }
+  </script>
+</body>
+</html>
