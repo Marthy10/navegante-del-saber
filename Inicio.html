@@ -168,34 +168,7 @@
 .boton-completar:hover {
   background-color: #007f55;
 }
-#misiones {
-      background-image: url('fondo_misiones.jpg'); /* Reemplaza con tu imagen */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-      min-height: 100vh;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
 
-    #misiones.active {
-      display: flex;
-    }
-
-    #misiones .contenido {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 15px;
-      max-width: 1000px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #2c3e50;
-    }
   </style>
 </head>
 <body>
@@ -204,7 +177,7 @@
     <a href="#" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
     <a href="#" onclick="mostrarSeccion('objetivo')">🎯 Objetivo</a>
     <a href="#" onclick="mostrarSeccion('narrativa')">📖 Narrativa</a>
-    <a href="#" onclick="mostrarSeccion('misiones')">🧩 Misiones</a>
+    <a href="misiones.html" onclick="mostrarSeccion('misiones')">🧩 Misiones</a>
     <a href="#" onclick="mostrarSeccion('recursos')">🧠 Recursos</a>
   </nav>
 
