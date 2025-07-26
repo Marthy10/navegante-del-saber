@@ -258,36 +258,5 @@
     <h2>🧠 Recursos TIC </h2>
     <p>Explora videos, imágenes interactivas, mapas históricos y enlaces a fuentes confiables que te ayudarán a resolver tus misiones y comprender los procesos históricos.</p>
   </section>
-
-  <script>
-    function mostrarSeccion(id) {
-      const secciones = document.querySelectorAll("section");
-      secciones.forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-  </script>
-<script>
-  let misionActual = 1;
-
-  function completarMision(id) {
-    const tarjeta = document.querySelector(`.mision[data-id='${id}']`);
-    tarjeta.style.backgroundColor = "#27ae60";
-    tarjeta.querySelector("button").innerText = "Completada";
-    tarjeta.querySelector("button").disabled = true;
-
-    // Desbloquear la siguiente misión
-   const siguiente = document.querySelector(`.mision[data-id='${id + 1}']`);
-    if (siguiente) {
-      siguiente.classList.remove("bloqueada");
-      siguiente.style.backgroundColor = "#2c3e50";
-      siguiente.style.opacity = "1";
-      const boton = siguiente.querySelector("button");
-      boton.disabled = false;
-      boton.innerText = "Completar";
-      boton.style.backgroundColor = "#e67e22";
-      boton.style.color = "white";
-    }
-  }//
-</script>
 </body>
 </html>
