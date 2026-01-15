@@ -143,12 +143,12 @@
   </div>
 </div>
 
-<!-- ✅ SCRIPT CORRECTO -->
 <script>
   window.addEventListener('load', () => {
     const completadas = parseInt(localStorage.getItem('unidadesCompletadas')) || 0;
     const totalMisiones = 5;
 
+    // Unidades ya completadas
     for (let i = 1; i <= completadas; i++) {
       const unidad = document.querySelector(`.unidad[data-id='${i}']`);
       if (unidad) {
@@ -164,14 +164,16 @@
       }
     }
 
+    // Siguiente unidad desbloqueada
     if (completadas < totalMisiones) {
-      const siguiente = document.querySelector(`.unidad[data-id='${completadas + 1}']`);
+      const siguienteId = completadas + 1;
+      const siguiente = document.querySelector(`.unidad[data-id='${siguienteId}']`);
       if (siguiente) {
         siguiente.classList.remove("bloqueada");
         const enlace = siguiente.querySelector("a.boton-completar");
         if (enlace) {
-          enlace.innerText = "🚀Iniciar Unidad " + (completadas + 1);
-          enlace.href = `unidad${i}.html`;
+          enlace.innerText = "🚀 Iniciar Unidad " + siguienteId;
+          enlace.href = `mision${siguienteId}.html`;
           enlace.style.pointerEvents = "auto";
           enlace.style.opacity = "1";
           enlace.removeAttribute("disabled");
@@ -182,9 +184,9 @@
 </script>
 
 <script>
-  function completarUnidad (id) {
+  function completarUnidad(id) {
     localStorage.setItem('unidadesCompletadas', id);
-    window.location.href = "misiones.html";
+    window.location.href = "unidades.html";
   }
 </script>
 </body>
