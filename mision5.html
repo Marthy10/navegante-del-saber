@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Misión 5 - Guardianes del Saber</title>
+  <title>Unidad 5 - Guardianes del Saber</title>
   <style>
     body {
       margin: 0;
@@ -108,8 +108,8 @@
 
   <section>
     <div class="contenido">
-      <h1>🎤 Misión 5: ¿Era justa la sociedad colonial?</h1>
-      <p>En esta última misión, observarás un video que describe la estructura de la sociedad colonial y luego participarás en un debate interactivo que pondrá a prueba tu pensamiento crítico.</p>
+      <h1>🎤 Unidad 5: ¿Era justa la sociedad colonial?</h1>
+      <p>En esta última unidad, observarás un video que describe la estructura de la sociedad colonial y luego participarás en un debate interactivo que pondrá a prueba tu pensamiento crítico.</p>
 
       <!-- Video de YouTube -->
       <iframe src="https://view.genially.com/688519d2a876861322d22af1/presentation-la-organizacion-politica-economica-y-social-del-periodo-colonial" allowfullscreen></iframe>
@@ -118,22 +118,22 @@
       <iframe src="https://view.genially.com/688522c549ee7ab0ae038de2/play-generador-de-debate" allowfullscreen></iframe>
 
       <!-- Botón para marcar misión como completada -->
-      <button class="boton-completar" onclick="completarMision(5)">✅ Misión completada</button>
+      <button class="boton-completar" onclick="completarMision(5)">✅ Unidad completada</button>
 
       <!-- Botón para volver al menú -->
-      <a href="misiones.html" class="button">⬅️ Volver a las Misiones</a>
+      <a href="unidades.html" class="button">⬅️ Volver a las unidades</a>
     </div>
   </section>
 
- <button class="boton-completar" onclick="completarMision(5)">✅ Misión completada</button>
+ <button class="boton-completar" onclick="completarMision(5)">✅ Unidad completada</button>
 
 <script>
   function completarMision(id) {
-    localStorage.setItem('misionesCompletadas', id);
+    localStorage.setItem('unidadCompletadas', id);
     if (id === 5) {
       window.location.href = "final.html";
     } else {
-      window.location.href = "misiones.html";
+      window.location.href = "unidad.html";
     }
   }
 </script>
