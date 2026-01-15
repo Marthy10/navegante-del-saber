@@ -1,189 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Navegante del Saber – Curso en línea</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guardianes del Saber – Curso Virtual</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ecf0f1;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
+  color: white;
+}
 
-    /* NAV */
-    nav {
-      background-color: #1e2a38;
-      padding: 1rem 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
+nav {
+  background: #1e2a38;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    nav a {
-      color: #f1c40f;
-      margin: 0 8px;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 10px 18px;
-      background: linear-gradient(145deg, #2f3640, #3b3b98);
-      border-radius: 12px;
-      transition: 0.3s;
-      display: inline-block;
-    }
+nav a {
+  color: #f1c40f;
+  margin: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 18px;
+  background: linear-gradient(145deg, #2f3640, #3b3b98);
+  border-radius: 12px;
+}
 
-    nav a:hover {
-      background: linear-gradient(145deg, #f39c12, #f1c40f);
-      color: #2c3e50;
-      transform: scale(1.05);
-    }
+section {
+  display: none;
+  min-height: 100vh;
+  padding: 60px 20px;
+  text-align: center;
+}
 
-    /* SECCIONES */
-    section {
-      display: none;
-      min-height: 100vh;
-      padding: 60px 20px;
-      text-align: center;
-    }
+section.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    section.active {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.contenido {
+  background: rgba(0,0,0,0.6);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: auto;
+}
 
-    .contenido {
-      background-color: rgba(0,0,0,0.55);
-      color: white;
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 1000px;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    /* FONDOS */
-    #inicio {
-      background: url('mi_fondo_inicio.jpg') center/cover no-repeat;
-    }
-
-    #objetivo {
-      background: url('imagen_objetivo.jpg') center/cover no-repeat;
-    }
-
-    #narrativa {
-      background: url('imagen_narrativa.jpg') center/cover no-repeat;
-    }
-
-    #metodologia {
-      background: #111;
-    }
-
-    /* BOTONES */
-    .button {
-      margin: 15px 10px 0;
-      padding: 12px 25px;
-      background-color: #e67e22;
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
-      display: inline-block;
-    }
-
-    .button:hover {
-      background-color: #d35400;
-    }
-  </style>
+.button {
+  background: #e67e22;
+  padding: 12px 25px;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  margin: 10px;
+  display: inline-block;
+}
+.button:hover {
+  background: #d35400;
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-  <a onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
-  <a onclick="mostrarSeccion('objetivo')">🎯 Objetivos</a>
-  <a onclick="mostrarSeccion('narrativa')">📖 Narrativa</a>
-  <a onclick="mostrarSeccion('metodologia')">🧠 Metodología</a>
+  <a href="#" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
+  <a href="#" onclick="mostrarSeccion('resultados')">📚 Resultados</a>
+  <a href="#" onclick="mostrarSeccion('objetivo')">🎯 Objetivo</a>
+  <a href="#" onclick="mostrarSeccion('narrativa')">📖 Narrativa</a>
+  <a href="#" onclick="mostrarSeccion('instrucciones')">🧠 Metodología</a>
+  <a href="#" onclick="mostrarSeccion('recompensas')">🏅 Evaluación</a>
 </nav>
 
-<!-- INICIO -->
-<section id="inicio" class="active">
-  <div class="contenido">
-    <h2>🌍 Bienvenido al curso Navegante del Saber</h2>
-    <p>
-      Este curso en línea ha sido diseñado para fortalecer el aprendizaje
-      significativo mediante el uso pedagógico de las TIC.
-    </p>
-    <p>
-      Analizarás procesos históricos desde una mirada crítica, reflexiva
-      y participativa.
-    </p>
-    <a class="button" onclick="mostrarSeccion('objetivo')">Iniciar el curso</a>
-  </div>
+<section id="inicio" class="active" style="background:url('mi_fondo_inicio.jpg') center/cover;">
+<div class="contenido">
+<p style="color:#f1c40f; font-weight:bold;">
+Curso virtual de Ciencias Sociales – Grado sexto<br>
+Metodología: Gamificación y Storytelling Digital
+</p>
+
+<h2>🏰 Guardianes del Saber</h2>
+<p>Una aventura educativa para comprender críticamente la Conquista de América mediante misiones, retos y narrativa digital.</p>
+
+<a href="#" class="button" onclick="mostrarSeccion('objetivo')">Comenzar</a>
+</div>
 </section>
 
-<!-- OBJETIVOS -->
+<section id="resultados">
+<div class="contenido">
+<h2>📚 Resultados de Aprendizaje</h2>
+<ul style="text-align:left;">
+<li>Analizar la Conquista de América desde múltiples perspectivas.</li>
+<li>Usar herramientas TIC para investigar y comunicar ideas.</li>
+<li>Desarrollar pensamiento crítico.</li>
+<li>Trabajar colaborativamente.</li>
+<li>Reconocer la diversidad cultural.</li>
+</ul>
+</div>
+</section>
+
 <section id="objetivo">
-  <div class="contenido">
-    <h2>🎯 Objetivos del Curso</h2>
-    <p>
-      Analizar de manera crítica el proceso de la Conquista de América,
-      reconociendo sus causas, consecuencias e impactos socioculturales.
-    </p>
-    <p>
-      Fortalecer el pensamiento crítico, la interpretación histórica
-      y el uso responsable de herramientas TIC.
-    </p>
-    <a class="button" onclick="mostrarSeccion('inicio')">Volver</a>
-    <a class="button" onclick="mostrarSeccion('narrativa')">Continuar</a>
-  </div>
+<div class="contenido">
+<h2>🎯 Objetivo del Curso</h2>
+<p>Comprender críticamente la Conquista de América mediante una experiencia gamificada que integre TIC, análisis histórico y reflexión social.</p>
+
+<h3>Competencias</h3>
+<ul style="text-align:left;">
+<li>Pensamiento crítico</li>
+<li>Uso pedagógico de TIC</li>
+<li>Trabajo colaborativo</li>
+<li>Interpretación histórica</li>
+</ul>
+
+<a href="#" class="button" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
+<a href="#" class="button" onclick="mostrarSeccion('narrativa')">📖 Narrativa</a>
+</div>
 </section>
 
-<!-- NARRATIVA -->
 <section id="narrativa">
-  <div class="contenido">
-    <h2>📖 Contextualización del Curso</h2>
-    <p>
-      El curso se desarrolla bajo una narrativa que posiciona al estudiante
-      como un explorador del conocimiento histórico.
-    </p>
-    <p>
-      A través del análisis, la reflexión y el uso de recursos digitales,
-      se promueve una comprensión crítica del pasado.
-    </p>
-    <a class="button" onclick="mostrarSeccion('objetivo')">Anterior</a>
-    <a class="button" onclick="mostrarSeccion('metodologia')">Siguiente</a>
-  </div>
+<div class="contenido">
+<h2>📖 Narrativa</h2>
+<p>Los Guardianes del Saber deben proteger la verdad histórica frente a La Sombra del Olvido. Cada misión revela una parte de la Conquista de América.</p>
+<a href="misiones.html" class="button">Iniciar Misiones</a>
+<a href="#" class="button" onclick="mostrarSeccion('inicio')">Volver</a>
+</div>
 </section>
 
-<!-- METODOLOGÍA -->
-<section id="metodologia">
-  <div class="contenido">
-    <h2>🧠 Metodología y Uso de TIC</h2>
-    <ul style="text-align:left; max-width:700px; margin:auto;">
-      <li>Aprendizaje activo centrado en el estudiante</li>
-      <li>Uso de recursos multimedia</li>
-      <li>Actividades reflexivas y autónomas</li>
-      <li>Evaluación formativa</li>
-    </ul>
-    <a class="button" onclick="mostrarSeccion('narrativa')">Anterior</a>
-  </div>
+<section id="instrucciones">
+<div class="contenido">
+<h2>🧠 Metodología</h2>
+<p>El curso usa gamificación, narrativa digital y retos interactivos.</p>
+<h3>Evaluación</h3>
+<ul>
+<li>Misiones completadas</li>
+<li>Productos digitales</li>
+<li>Participación</li>
+<li>Insignias</li>
+</ul>
+</div>
+</section>
+
+<section id="recompensas">
+<div class="contenido">
+<h2>🏅 Evaluación formativa</h2>
+<p>Las insignias y recompensas representan el logro de competencias y el avance del estudiante.</p>
+</div>
 </section>
 
 <script>
-  function mostrarSeccion(id) {
-    document.querySelectorAll("section").forEach(sec =>
-      sec.classList.remove("active")
-    );
-    document.getElementById(id).classList.add("active");
-  }
+function mostrarSeccion(id) {
+  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
 </script>
 
 </body>
