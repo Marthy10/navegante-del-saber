@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menú Gamificado - Guardianes del Saber</title>
+  <title>Navegante del Saber – Curso en línea</title>
+
   <style>
     body {
       margin: 0;
@@ -15,7 +16,6 @@
       background-color: #1e2a38;
       padding: 1rem 0;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -23,326 +23,167 @@
 
     nav a {
       color: #f1c40f;
-      margin: 0 10px;
+      margin: 0 8px;
       text-decoration: none;
       font-weight: bold;
       padding: 10px 18px;
       background: linear-gradient(145deg, #2f3640, #3b3b98);
       border-radius: 12px;
-      transition: all 0.3s ease-in-out;
-      font-size: 1rem;
+      transition: 0.3s;
       display: inline-block;
     }
 
     nav a:hover {
       background: linear-gradient(145deg, #f39c12, #f1c40f);
       color: #2c3e50;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     section {
       display: none;
+      min-height: 100vh;
       padding: 60px 20px;
       text-align: center;
-      background-color: #ecf0f1;
     }
 
     section.active {
-      display: block;
-    }
-
-    /* Estilos específicos para la sección de Inicio */
-    #inicio {
-      background-image: url('mi_fondo_inicio.jpg'); /* Reemplaza con tu imagen */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-      min-height: 100vh;
-      display: none;
-      flex-direction: column;
+      display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    #inicio.active {
-      display: flex;
-    }
-
-    #inicio .contenido {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px;
+    .contenido {
+      background-color: rgba(0,0,0,0.55);
+      color: white;
+      padding: 25px;
       border-radius: 15px;
-      max-width: 900px;
-      text-align: center;
+      max-width: 1000px;
     }
 
     h2 {
-      color: #2c3e50;
+      margin-top: 0;
     }
 
     .button {
-      margin-top: 2rem;
+      display: inline-block;
+      margin: 15px 10px 0;
+      padding: 12px 25px;
       background-color: #e67e22;
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
       color: white;
+      text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s ease;
+      border-radius: 10px;
+      transition: 0.3s;
+      cursor: pointer;
     }
 
     .button:hover {
       background-color: #d35400;
     }
 
-     #objetivo {
-      background-image: url('imagen_objetivo.jpg'); /* Reemplaza con tu imagen */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-      min-height: 100vh;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* SECCIONES CON FONDO */
+    #inicio {
+      background: url('mi_fondo_inicio.jpg') center/cover no-repeat;
     }
 
-    #objetivo.active {
-      display: flex;
+    #objetivo {
+      background: url('imagen_objetivo.jpg') center/cover no-repeat;
     }
 
-    #objetivo .contenido {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 15px;
-      max-width: 1000px;
-      text-align: center;
+    #narrativa {
+      background: url('imagen_narrativa.jpg') center/cover no-repeat;
     }
 
-    h2 {
-      color: #2c3e50;
+    #metodologia {
+      background: #111;
     }
-
-     #narrativa {
-      background-image: url('imagen_narrativa.jpg'); /* Reemplaza con tu imagen */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-      min-height: 100vh;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #narrativa.active {
-      display: flex;
-    }
-
-    #narrativa .contenido {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 15px;
-      max-width: 1000px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #2c3e50;
-    }
-
-   .boton-completar {
-  display: inline-block;
-  background-color: #00a86b;
-  color: white;
-  padding: 12px 25px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 10px;
-  margin-top: 15px;
-  transition: background-color 0.3s ease;
-}
-.boton-completar:hover {
-  background-color: #007f55;
-}
-
   </style>
 </head>
+
 <body>
 
 <nav>
-  <a href="#" onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
-  <a href="#" onclick="mostrarSeccion('objetivo')">🎯 Objetivo</a>
-  <a href="#" onclick="mostrarSeccion('narrativa')">📖 Narrativa</a>
-  <a href="#" onclick="mostrarSeccion('instrucciones')">🧠 Instrucciones del Juego</a>
-  <a href="#" onclick="mostrarSeccion('recompensas')">🏅 Recompensas</a>
+  <a onclick="mostrarSeccion('inicio')">Inicio</a>
+  <a onclick="mostrarSeccion('objetivo')">Objetivos</a>
+  <a onclick="mostrarSeccion('narrativa')">Contexto</a>
+  <a onclick="mostrarSeccion('metodologia')">Metodología</a>
 </nav>
 
-  <section id="inicio" class="active">
-    <div class="contenido">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🏰 ¡Bienvenido, Guardián del Saber!</h2>
-      <p style="font-size: 1.2rem; line-height: 1.6;">
-        Has sido seleccionado como parte de una élite de estudiantes valientes que asumirán una misión histórica sin precedentes.
-        La humanidad necesita tu ingenio, tu curiosidad y tu compromiso para reconstruir la historia desde una mirada crítica,
-        activa y transformadora.
-      </p>
-      <p style="font-size: 1.2rem; line-height: 1.6;">
-        En esta aventura educativa recorrerás los hechos más relevantes de la <strong>Conquista de América</strong>, 
-        desentrañando verdades ocultas, rescatando voces silenciadas y comprendiendo los impactos que este proceso dejó 
-        en nuestras culturas ancestrales.
-      </p>
-      <p style="font-size: 1.2rem; line-height: 1.6;">
-        Como <strong>Guardián del Saber</strong>, te enfrentarás a desafíos en forma de <em>misiones</em>, resolverás enigmas, 
-        analizarás recursos multimedia y demostrarás tus habilidades para construir conocimiento. No estás solo: tus decisiones, 
-        tu criterio y tu trabajo en equipo serán clave para avanzar y desbloquear nuevos niveles.
-      </p>
-      <p style="font-size: 1.2rem; line-height: 1.6;">
-        Esta es tu Aula. Esta es tu Misión. ¡Haz historia con nosotros!
-      </p>
-      <a href="index.html" class="button" onclick="mostrarSeccion('inicio')">Volver a la portada</a>
-      <a href="#" class="button" onclick="mostrarSeccion('objetivo')">Objetivos del Juego</a>
-    </div>
-  </section>
-
-  <section id="objetivo">
-    <div class="contenido">
-  <h2>🎯 Objetivo</h2>
-  <p>
-    El objetivo principal de esta experiencia educativa gamificada es que los estudiantes comprendan y analicen de manera crítica el proceso de la Conquista de América, reconociendo sus causas, su desarrollo y las múltiples consecuencias que tuvo para los pueblos originarios y las sociedades actuales.
-  </p>
-  <p>
-    A través de una narrativa inmersiva y actividades tipo misión, se busca fomentar la curiosidad, el pensamiento crítico y la reflexión histórica, permitiendo a los estudiantes asumir un rol activo como protagonistas de su aprendizaje.
-  </p>
-  <p>
-    Además, se pretende fortalecer habilidades como el trabajo colaborativo, la investigación, la interpretación de fuentes históricas y el uso de herramientas TIC, promoviendo una educación significativa, ética y transformadora.
-  </p>
-  <p>
-    Este enfoque busca formar ciudadanos más conscientes, empáticos y capaces de cuestionar las versiones tradicionales de la historia para construir nuevas perspectivas desde el respeto a la diversidad cultural.
-  </p>
-  </div>
-</section>
-
- <section id="narrativa">
-  <div class = "contenido">
-  <h2>📖 Narrativa: Guardianes del Saber</h2>
-  <p>
-    En un rincón oculto del universo del conocimiento, existe una orden secreta conocida como <strong>Los Guardianes del Saber</strong>.
-    Durante siglos, esta orden ha protegido las verdades más valiosas de la historia humana. Pero ahora, una amenaza oscura ha surgido…
-  </p>
-  <p>
-    Una organización misteriosa llamada <strong>La Sombra del Olvido</strong> ha comenzado a alterar los registros históricos. 
-    Su objetivo es claro: borrar los hechos verdaderos sobre la <strong>Conquista de América</strong> para controlar el pasado… y así manipular el futuro.
-  </p>
-  <p>
-    El tiempo comienza a fragmentarse. Imágenes confusas, relatos distorsionados y voces silenciadas claman por justicia desde lo más profundo de la historia.
-    Si nadie actúa, el legado de pueblos enteros será borrado para siempre.
-  </p>
-  <p><strong>📜 Aquí es donde entras tú.</strong><br>
-    Como miembro de la generación Aula 7, has sido elegido por la Orden de los Guardianes. 
-    Tu mente, tu corazón y tu capacidad de cuestionar te convierten en una pieza clave en esta misión histórica.
-  </p>
-  <ul style="text-align: left; max-width: 700px; margin: 20px auto;">
-    <li>🕰️ Viaja virtualmente a épocas pasadas,</li>
-    <li>🔍 Descubre los verdaderos rostros de los conquistadores y los pueblos indígenas,</li>
-    <li>🕵️ Desenmascara las versiones manipuladas por <em>La Sombra del Olvido</em>,</li>
-    <li>📦 Construye una cápsula del tiempo que preserve la verdad.</li>
-  </ul>
-  <p style="font-size: 1.2rem;"><strong>¿Aceptarás el desafío?</strong></p>
-  <a href="misiones.html" class="button">SI</a>
-  <a href="index.html" class="button" onclick="mostrarSeccion('inicio')">NO</a>
-</div>
-</section>
-
-<section id="instrucciones" style="padding: 40px; background-color: #111; color: white;">
-  <div style="max-width: 900px; margin: auto;">
-    <h2 style="color: #f1c40f; text-align: center;">📋 Instrucciones del Juego</h2>
-    
-    <p>Bienvenido a <strong>Guardianes del Saber</strong>. Esta experiencia está diseñada como una aventura gamificada donde debes superar retos, explorar contenidos y desbloquear misiones. A continuación, te explicamos cómo participar:</p>
-
-    <ul style="font-size: 1.1rem; line-height: 1.6;">
-      <li>🧩 El juego consta de <strong>5 misiones</strong>, cada una con actividades multimedia.</li>
-      <li>🔓 Las misiones se desbloquean progresivamente a medida que completas las anteriores.</li>
-      <li>🎮 Cada misión puede incluir videos, lecturas, mapas, cuestionarios o retos interactivos.</li>
-      <li>✅ Al finalizar una misión, debes hacer clic en <strong>“Misión completada”</strong> para avanzar.</li>
-      <li>🏆 Acumula insignias y recompensas simbólicas al avanzar en el juego.</li>
-      <li>📜 Al final, recibirás un <strong>Diploma de Guardián del Saber</strong>.</li>
-      <li>🚀 ¡Tú decides tu ritmo! Pero cada misión debe completarse con responsabilidad y compromiso.</li>
-    </ul>
-
-    <p style="text-align: center; margin-top: 30px;">
-      <strong>¡Buena suerte, Guardián!</strong><br>
-      Tu conocimiento es la mejor herramienta para cambiar la historia.
+<!-- INICIO -->
+<section id="inicio" class="active">
+  <div class="contenido">
+    <h2>🌍 Bienvenido al curso Navegante del Saber</h2>
+    <p>
+      Este curso en línea ha sido diseñado para promover el aprendizaje significativo
+      mediante el uso de estrategias didácticas apoyadas en las TIC.
     </p>
+    <p>
+      A lo largo del recorrido, analizarás contenidos históricos desde una mirada crítica,
+      reflexiva y participativa.
+    </p>
+    <a class="button" onclick="mostrarSeccion('objetivo')">Iniciar el curso</a>
   </div>
 </section>
-  
- <section id="recompensas" style="padding: 40px; background-color: #111; color: white;">
-  <div style="max-width: 900px; margin: auto;">
-    <h2 style="color: #f1c40f; text-align: center;">🏅 Recompensas del Juego</h2>
 
-    <div id="contenedorRecompensas">
-      <!-- Recompensas bloqueadas se ocultan con JS -->
-      <div class="recompensa" data-mision="1">
-        <h3>📖 Insignia: Aprendiz del Saber</h3>
-        <p>Un libro abierto con luz dorada.</p>
-      </div>
-
-      <div class="recompensa" data-mision="2">
-        <h3>🥇 Medallas y Monedas</h3>
-        <p>Medallas de bronce, plata y oro, junto a monedas históricas.</p>
-      </div>
-
-      <div class="recompensa" data-mision="3">
-        <h3>🏆 Trofeo del Guardián Supremo</h3>
-        <p>Una copa con figuras de dos mundos entrelazados.</p>
-      </div>
-
-      <div class="recompensa" data-mision="5">
-        <h3>📜 Diploma y 🗺️ Mapa final</h3>
-        <p>Certificado digital y acceso al mapa completo del saber.</p>
-      </div>
-    </div>
+<!-- OBJETIVOS -->
+<section id="objetivo">
+  <div class="contenido">
+    <h2>🎯 Objetivos del Curso</h2>
+    <p>
+      Analizar de manera crítica el proceso de la Conquista de América, reconociendo sus
+      causas, consecuencias e impactos socioculturales.
+    </p>
+    <p>
+      Fortalecer el pensamiento crítico, la interpretación histórica y el uso pedagógico
+      de herramientas TIC.
+    </p>
+    <a class="button" onclick="mostrarSeccion('inicio')">Volver</a>
+    <a class="button" onclick="mostrarSeccion('narrativa')">Continuar</a>
   </div>
 </section>
+
+<!-- NARRATIVA -->
+<section id="narrativa">
+  <div class="contenido">
+    <h2>📖 Contextualización del Curso</h2>
+    <p>
+      Este curso se desarrolla bajo una narrativa que sitúa al estudiante como un
+      explorador del conocimiento histórico, capaz de cuestionar, analizar y reconstruir
+      la historia desde múltiples perspectivas.
+    </p>
+    <p>
+      La tecnología se convierte en una aliada para acceder a fuentes, recursos
+      multimedia y actividades interactivas.
+    </p>
+    <a class="button" onclick="mostrarSeccion('objetivo')">Anterior</a>
+    <a class="button" onclick="mostrarSeccion('metodologia')">Siguiente</a>
+  </div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section id="metodologia">
+  <div class="contenido">
+    <h2>🧠 Metodología y Uso de TIC</h2>
+    <p>
+      El curso se desarrolla mediante una metodología activa, centrada en el estudiante,
+      integrando recursos digitales, actividades reflexivas y aprendizaje autónomo.
+    </p>
+    <ul style="text-align:left; max-width:700px; margin:auto;">
+      <li>Uso de recursos multimedia</li>
+      <li>Aprendizaje basado en actividades</li>
+      <li>Integración de TIC con sentido pedagógico</li>
+      <li>Evaluación formativa</li>
+    </ul>
+    <a class="button" onclick="mostrarSeccion('narrativa')">Anterior</a>
+  </div>
+</section>
+
 <script>
   function mostrarSeccion(id) {
-    const secciones = document.querySelectorAll("section");
-    secciones.forEach(sec => sec.classList.remove("active"));
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
     document.getElementById(id).classList.add("active");
   }
 </script>
-  <script>
-  function mostrarSeccion(id) {
-    const secciones = document.querySelectorAll("section");
-    secciones.forEach(sec => sec.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
 
-    // Mostrar recompensas desbloqueadas si estamos en la sección
-    if (id === 'recompensas') mostrarRecompensas();
-  }
-
-  function mostrarRecompensas() {
-    const completadas = parseInt(localStorage.getItem('misionesCompletadas')) || 0;
-    const recompensas = document.querySelectorAll(".recompensa");
-    recompensas.forEach(div => {
-      const misionNecesaria = parseInt(div.dataset.mision);
-      if (completadas >= misionNecesaria) {
-        div.style.display = "block";
-      } else {
-        div.style.display = "none";
-      }
-    });
-  }
-
-  // Mostrar recompensas al cargar la página si ya está desbloqueado
-  window.addEventListener("load", () => {
-    if (document.getElementById("recompensas").classList.contains("active")) {
-      mostrarRecompensas();
-    }
-  });
-</script>
 </body>
 </html>
