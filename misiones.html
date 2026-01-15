@@ -67,7 +67,7 @@
       background-color: #007f55;
     }
 
-    .mision {
+    .unidad {
   background-color: #2c3e50;
   padding: 20px;
   border-radius: 12px;
@@ -90,7 +90,7 @@
       color: #f1c40f;
     }
 
-    #contenedorMisiones {
+   #contenedorUnidades {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
@@ -106,30 +106,30 @@
   </nav>
 
   <h2>🧩Unidades del Curso</h2>
- <div id="contenedorMisiones">
+ <div id="contenedorUnidades">
   <!-- Misión 1 -->
-  <div class="mision" data-id="1">
+  <div class="unidad" data-id="1">
     <h3>📜 Unidad 1: Historia de la Conquista de América </h3>
     <p>Analiza un video y reflexiona sobre la llegada de los Europeos.</p>
     <a href="mision1.html" class="boton-completar">🚀 Iniciar Unidad 1</a>
   </div>
 
   <!-- Misión 2 -->
-  <div class="mision bloqueada" data-id="2">
+  <div class="unidad bloqueada" data-id="2">
     <h3>🗺️ Unidad 2: Causas y etapas de la conquista</h3>
     <p>Explora las etapas del proceso.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
   </div>
 
   <!-- Misión 3 -->
-  <div class="mision bloqueada" data-id="3">
+  <div class="unidad bloqueada" data-id="3">
     <h3>⚔️ Unidad 3: Viajes de Colón y descubrimiento </h3>
     <p>Completa la información.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
   </div>
 
   <!-- Misión 4 -->
-  <div class="mision bloqueada" data-id="4">
+  <div class="unidad bloqueada" data-id="4">
     <h3>🖼️ Unidad 4: Encuentro de dos mundos choque o mestizaje</h3>
     <p>Responde las preguntas segun la ruleta.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
@@ -150,9 +150,9 @@
     const totalMisiones = 5;
 
     for (let i = 1; i <= completadas; i++) {
-      const mision = document.querySelector(`.mision[data-id='${i}']`);
-      if (mision) {
-        mision.classList.remove("bloqueada");
+      const mision = document.querySelector(`.unidad[data-id='${i}']`);
+      if (unidad) {
+        unidad.classList.remove("bloqueada");
         const enlace = mision.querySelector("a.boton-completar");
         if (enlace) {
           enlace.innerText = "✅ Unidad " + i + " Completada";
@@ -165,12 +165,12 @@
     }
 
     if (completadas < totalMisiones) {
-      const siguiente = document.querySelector(`.mision[data-id='${completadas + 1}']`);
+      const siguiente = document.querySelector(`.unidad[data-id='${completadas + 1}']`);
       if (siguiente) {
         siguiente.classList.remove("bloqueada");
         const enlace = siguiente.querySelector("a.boton-completar");
         if (enlace) {
-          enlace.innerText = "🚀 Completar Unidad " + (completadas + 1);
+          enlace.innerText = "🚀Iniciar Unidad " + (completadas + 1);
           enlace.href = `mision${completadas + 1}.html`;
           enlace.style.pointerEvents = "auto";
           enlace.style.opacity = "1";
