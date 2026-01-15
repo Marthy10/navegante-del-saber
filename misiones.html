@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Misiones - Guardianes del Saber</title>
+  <title> Unidades del Curso </title>
   <style>
     body {
       margin: 0;
@@ -105,39 +105,39 @@
     <a href="inicio.html">🏠 Volver al Menú Principal</a>
   </nav>
 
-  <h2>🧩 Misiones</h2>
+  <h2>🧩Unidades</h2>
  <div id="contenedorMisiones">
   <!-- Misión 1 -->
   <div class="mision" data-id="1">
-    <h3>📜 Misión 1: Historia de la Conquista de América </h3>
+    <h3>📜 Unidad 1: Historia de la Conquista de América </h3>
     <p>Analiza un video y reflexiona sobre la llegada de los Europeos.</p>
-    <a href="mision1.html" class="boton-completar">🚀 Completar Misión 1</a>
+    <a href="mision1.html" class="boton-completar">🚀 Iniciar Unidad 1</a>
   </div>
 
   <!-- Misión 2 -->
   <div class="mision bloqueada" data-id="2">
-    <h3>🗺️ Misión 2: Causas y etapas de la conquista</h3>
+    <h3>🗺️ Unidad 2: Causas y etapas de la conquista</h3>
     <p>Explora las etapas del proceso.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
   </div>
 
   <!-- Misión 3 -->
   <div class="mision bloqueada" data-id="3">
-    <h3>⚔️ Misión 3: Viajes de Colón y descubrimiento </h3>
+    <h3>⚔️ Unidad 3: Viajes de Colón y descubrimiento </h3>
     <p>Completa la información.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
   </div>
 
   <!-- Misión 4 -->
   <div class="mision bloqueada" data-id="4">
-    <h3>🖼️ Misión 4: Encuentro de dos mundos choque o mestizaje</h3>
+    <h3>🖼️ Unidad 4: Encuentro de dos mundos choque o mestizaje</h3>
     <p>Responde las preguntas segun la ruleta.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
   </div>
 
   <!-- Misión 5 -->
   <div class="mision bloqueada" data-id="5">
-    <h3>🎤 Misión 5: ¿Era justa la sociedad colonial?</h3>
+    <h3>🎤 Unidad 5: ¿Era justa la sociedad colonial?</h3>
     <p>Observa la infografía y contesta preguntas.</p>
     <a href="#" class="boton-completar" disabled style="pointer-events: none; opacity: 0.6;">🔒 Bloqueada</a>
   </div>
@@ -170,7 +170,7 @@
         siguiente.classList.remove("bloqueada");
         const enlace = siguiente.querySelector("a.boton-completar");
         if (enlace) {
-          enlace.innerText = "🚀 Completar Misión " + (completadas + 1);
+          enlace.innerText = "🚀 Completar Unidad " + (completadas + 1);
           enlace.href = `mision${completadas + 1}.html`;
           enlace.style.pointerEvents = "auto";
           enlace.style.opacity = "1";
