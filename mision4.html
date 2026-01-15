@@ -121,13 +121,13 @@
       <button class="boton-completar" onclick="completarMision(4)">✅ Unidad completada</button>
 
       <!-- Botón para volver al menú -->
-      <a href="misiones.html" class="button">⬅️ Volver a las Unidades</a>
+      <a href="unidades.html" class="button">⬅️ Volver a las Unidades</a>
     </div>
   </section>
 
   <script>
     function completarMision(id) {
-      localStorage.setItem('UnidadesCompletadas', id);
+      localStorage.setItem('unidadesCompletadas', id);
       alert("¡Unidad completada! Puedes avanzar a la siguiente.");
       window.location.href = "unidades.html";
     }
