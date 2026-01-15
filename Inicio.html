@@ -9,9 +9,10 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
+      background-color: #ecf0f1;
     }
 
+    /* NAV */
     nav {
       background-color: #1e2a38;
       padding: 1rem 0;
@@ -19,6 +20,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     nav a {
@@ -39,6 +41,7 @@
       transform: scale(1.05);
     }
 
+    /* SECCIONES */
     section {
       display: none;
       min-height: 100vh;
@@ -55,7 +58,7 @@
     .contenido {
       background-color: rgba(0,0,0,0.55);
       color: white;
-      padding: 25px;
+      padding: 30px;
       border-radius: 15px;
       max-width: 1000px;
     }
@@ -64,24 +67,7 @@
       margin-top: 0;
     }
 
-    .button {
-      display: inline-block;
-      margin: 15px 10px 0;
-      padding: 12px 25px;
-      background-color: #e67e22;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      background-color: #d35400;
-    }
-
-    /* SECCIONES CON FONDO */
+    /* FONDOS */
     #inicio {
       background: url('mi_fondo_inicio.jpg') center/cover no-repeat;
     }
@@ -97,16 +83,34 @@
     #metodologia {
       background: #111;
     }
+
+    /* BOTONES */
+    .button {
+      margin: 15px 10px 0;
+      padding: 12px 25px;
+      background-color: #e67e22;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background-color: #d35400;
+    }
   </style>
 </head>
 
 <body>
 
 <nav>
-  <a onclick="mostrarSeccion('inicio')">Inicio</a>
-  <a onclick="mostrarSeccion('objetivo')">Objetivos</a>
-  <a onclick="mostrarSeccion('narrativa')">Contexto</a>
-  <a onclick="mostrarSeccion('metodologia')">Metodología</a>
+  <a onclick="mostrarSeccion('inicio')">🏠 Inicio</a>
+  <a onclick="mostrarSeccion('objetivo')">🎯 Objetivos</a>
+  <a onclick="mostrarSeccion('narrativa')">📖 Narrativa</a>
+  <a onclick="mostrarSeccion('metodologia')">🧠 Metodología</a>
 </nav>
 
 <!-- INICIO -->
@@ -114,12 +118,12 @@
   <div class="contenido">
     <h2>🌍 Bienvenido al curso Navegante del Saber</h2>
     <p>
-      Este curso en línea ha sido diseñado para promover el aprendizaje significativo
-      mediante el uso de estrategias didácticas apoyadas en las TIC.
+      Este curso en línea ha sido diseñado para fortalecer el aprendizaje
+      significativo mediante el uso pedagógico de las TIC.
     </p>
     <p>
-      A lo largo del recorrido, analizarás contenidos históricos desde una mirada crítica,
-      reflexiva y participativa.
+      Analizarás procesos históricos desde una mirada crítica, reflexiva
+      y participativa.
     </p>
     <a class="button" onclick="mostrarSeccion('objetivo')">Iniciar el curso</a>
   </div>
@@ -130,12 +134,12 @@
   <div class="contenido">
     <h2>🎯 Objetivos del Curso</h2>
     <p>
-      Analizar de manera crítica el proceso de la Conquista de América, reconociendo sus
-      causas, consecuencias e impactos socioculturales.
+      Analizar de manera crítica el proceso de la Conquista de América,
+      reconociendo sus causas, consecuencias e impactos socioculturales.
     </p>
     <p>
-      Fortalecer el pensamiento crítico, la interpretación histórica y el uso pedagógico
-      de herramientas TIC.
+      Fortalecer el pensamiento crítico, la interpretación histórica
+      y el uso responsable de herramientas TIC.
     </p>
     <a class="button" onclick="mostrarSeccion('inicio')">Volver</a>
     <a class="button" onclick="mostrarSeccion('narrativa')">Continuar</a>
@@ -147,13 +151,12 @@
   <div class="contenido">
     <h2>📖 Contextualización del Curso</h2>
     <p>
-      Este curso se desarrolla bajo una narrativa que sitúa al estudiante como un
-      explorador del conocimiento histórico, capaz de cuestionar, analizar y reconstruir
-      la historia desde múltiples perspectivas.
+      El curso se desarrolla bajo una narrativa que posiciona al estudiante
+      como un explorador del conocimiento histórico.
     </p>
     <p>
-      La tecnología se convierte en una aliada para acceder a fuentes, recursos
-      multimedia y actividades interactivas.
+      A través del análisis, la reflexión y el uso de recursos digitales,
+      se promueve una comprensión crítica del pasado.
     </p>
     <a class="button" onclick="mostrarSeccion('objetivo')">Anterior</a>
     <a class="button" onclick="mostrarSeccion('metodologia')">Siguiente</a>
@@ -164,14 +167,10 @@
 <section id="metodologia">
   <div class="contenido">
     <h2>🧠 Metodología y Uso de TIC</h2>
-    <p>
-      El curso se desarrolla mediante una metodología activa, centrada en el estudiante,
-      integrando recursos digitales, actividades reflexivas y aprendizaje autónomo.
-    </p>
     <ul style="text-align:left; max-width:700px; margin:auto;">
+      <li>Aprendizaje activo centrado en el estudiante</li>
       <li>Uso de recursos multimedia</li>
-      <li>Aprendizaje basado en actividades</li>
-      <li>Integración de TIC con sentido pedagógico</li>
+      <li>Actividades reflexivas y autónomas</li>
       <li>Evaluación formativa</li>
     </ul>
     <a class="button" onclick="mostrarSeccion('narrativa')">Anterior</a>
@@ -180,7 +179,9 @@
 
 <script>
   function mostrarSeccion(id) {
-    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.querySelectorAll("section").forEach(sec =>
+      sec.classList.remove("active")
+    );
     document.getElementById(id).classList.add("active");
   }
 </script>
