@@ -166,11 +166,42 @@ Metodología: Gamificación y Storytelling Digital
 </section>
   
 <section id="recompensas">
-<div class="contenido">
-<h2>🏅 Evaluación formativa</h2>
-<p>Las insignias y recompensas representan el logro de competencias y el avance del estudiante.</p>
-</div>
+  <div class="contenido">
+    <h2>🏅 Evaluación formativa</h2>
+    <p id="mensajeRecompensa">
+      Aún no has desbloqueado recompensas. Completa una unidad para comenzar.
+    </p>
+
+    <div id="insignias" style="margin-top:20px; font-size:1.2rem;"></div>
+  </div>
 </section>
+
+  <script>
+  window.addEventListener("load", () => {
+    const completadas = parseInt(localStorage.getItem("unidadesCompletadas")) || 0;
+    const insignias = document.getElementById("insignias");
+    const mensaje = document.getElementById("mensajeRecompensa");
+
+    insignias.innerHTML = "";
+
+    if (completadas >= 1) {
+      mensaje.innerText = "¡Has comenzado tu proceso formativo!";
+      insignias.innerHTML += "🥉 Insignia Explorador del Saber<br>";
+    }
+
+    if (completadas >= 2) {
+      insignias.innerHTML += "🥈 Insignia Historiador en Formación<br>";
+    }
+
+    if (completadas >= 3) {
+      insignias.innerHTML += "🥇 Insignia Guardián del Saber<br>";
+    }
+
+    if (completadas >= 5) {
+      insignias.innerHTML += "🏆 Certificado de Finalización del Curso";
+    }
+  });
+</script>
 
 <script>
 function mostrarSeccion(id) {
